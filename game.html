@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dynamic Image Puzzle Game</title>
+    <link rel="stylesheet" href="game.css">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/css/bootstrap.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css" rel="stylesheet">
+	</head>
+
+    <body>
+    <div class="container">
+        <div class="game-container">
+            <div class="game-header">
+                <h1 class="game-title">
+                    <i class="fas fa-puzzle-piece"></i>
+                    Sliding Puzzle
+                </h1>
+                
+                <div class="difficulty-selector">
+                    <select id="difficultySelect" class="form-select" style="width: auto; margin: 0 auto;">
+                        <option value="3">Easy (3x3)</option>
+                        <option value="4" selected>Medium (4x4)</option>
+                        <option value="5">Hard (5x5)</option>
+                    </select>
+                </div>
+            </div>
+
+            <div class="game-stats">
+                <div class="stat-item">
+                    <div class="stat-value" id="moveCounter">0</div>
+                    <div class="stat-label">Moves</div>
+                </div>
+                
+                <div class="stat-item">
+                    <img id="imagePreview" class="image-preview" src="https://picsum.photos/400/400?random=1" alt="Puzzle Preview">
+                </div>
+                
+                <div class="stat-item">
+                    <div class="stat-value" id="timeCounter">00:00</div>
+                    <div class="stat-label">Time</div>
+                </div>
+            </div>
+
+            <div id="puzzleGrid" class="puzzle-grid"></div>
+
+            <div class="controls">
+                <button id="newGameBtn" class="btn btn-game">
+                    <i class="fas fa-plus"></i> New Game
+                </button>
+                <button id="shuffleBtn" class="btn btn-game">
+                    <i class="fas fa-random"></i> Shuffle
+                </button>
+                <button id="solveBtn" class="btn btn-game">
+                    <i class="fas fa-lightbulb"></i> Hint
+                </button>
+                <button id="changeImageBtn" class="btn btn-game">
+                    <i class="fas fa-image"></i> Change Image
+                </button>
+            </div>
+        </div>
+    </div>
+
+    <div id="winMessage" class="win-message">
+        <h2><i class="fas fa-trophy"></i> Congratulations!</h2>
+        <p>You solved the puzzle!</p>
+        <p id="winStats"></p>
+        <button class="btn btn-light mt-3" onclick="hideWinMessage()">Continue</button>
+    </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="game.js"></script>
+</body>
+</html>
